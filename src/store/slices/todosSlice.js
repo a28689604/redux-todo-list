@@ -13,16 +13,33 @@ const todosSlice = createSlice({
     addTodo(state, action) {
       // Assumption:
       // action.payload === {
-      // name:'washing dishes',
-      // status: 0> (to do) 1> (in progress) 2> (done)
+      // content:'washing dishes',
+      // status: 0>(to do) 1>(done)
       //}
+      state.data.push({
+        content: action.payload.action,
+        status: 0,
+        createAt: Date.now(),
+        doneAt: "",
+      });
     },
-    changeTodoStatus(state, action) {
-      // Assumption:
-      // action.payload === {
-      // id: 'one of the todo's id',
-      // changeTo: 'to do'
-      //}
+    removeTodo(state, action) {
+      // action.payload === the id of the todo we want to remove
+      const updated = state.data.filter((todo) => {
+        return todo.id !== action.payload;
+      });
+      state.data = updated;
+    },
+    markDone(state, action) {
+      const targetIndex = state.data.indexOf((todo) => todo.id === action.payload);
+      state.data[targetIndex].status = 1;
+    },
+    undoDone(state, action) {
+      const targetIndex = state.data.indexOf((todo) => todo.id === action.payload);
+      state.data[targetIndex].status = 0;
     },
   },
 });
+
+export const { changeSearchTerm, addTodo, changeTodoStatus, removeTodo } = todosSlice.actions;
+export const todosReducer = todosSlice.reducer;
