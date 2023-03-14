@@ -9,8 +9,6 @@ const TodoList = ({ done }) => {
   });
   // const toDos = useSelector((state) => state.toDos.data);
 
-  console.log(toDos);
-
   const handleToDoDelete = (todo) => {
     dispatch(removeTodo(todo.id));
   };
