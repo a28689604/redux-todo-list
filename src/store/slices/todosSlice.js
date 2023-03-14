@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-const todosSlice = createSlice({
-  name: "todos",
+const toDosSlice = createSlice({
+  name: "toDos",
   initialState: {
     searchTerm: "",
     data: [],
@@ -17,10 +17,11 @@ const todosSlice = createSlice({
       // status: 0>(to do) 1>(done)
       //}
       state.data.push({
-        content: action.payload.action,
-        status: 0,
+        content: action.payload,
+        done: false,
         createAt: Date.now(),
         doneAt: "",
+        id: nanoid(),
       });
     },
     removeTodo(state, action) {
@@ -30,16 +31,16 @@ const todosSlice = createSlice({
       });
       state.data = updated;
     },
-    markDone(state, action) {
-      const targetIndex = state.data.indexOf((todo) => todo.id === action.payload);
-      state.data[targetIndex].status = 1;
+    changeDoneStatus(state, action) {
+      const targetIndex = state.data.findIndex((todo) => todo.id === action.payload);
+      state.data[targetIndex].done = !state.data[targetIndex].done;
     },
-    undoDone(state, action) {
-      const targetIndex = state.data.indexOf((todo) => todo.id === action.payload);
-      state.data[targetIndex].status = 0;
+    changeDoneAt(state, action) {
+      const targetIndex = state.data.findIndex((todo) => todo.id === action.payload);
+      state.data[targetIndex].doneAt = Date.now();
     },
   },
 });
 
-export const { changeSearchTerm, addTodo, changeTodoStatus, removeTodo } = todosSlice.actions;
-export const todosReducer = todosSlice.reducer;
+export const { changeSearchTerm, addTodo, removeTodo, changeDoneStatus, changeDoneAt } = toDosSlice.actions;
+export const toDosReducer = toDosSlice.reducer;
