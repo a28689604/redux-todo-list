@@ -1,46 +1,31 @@
-# Getting Started with Create React App and Redux
+# redux-todo-list
+![整體圖片](https://user-images.githubusercontent.com/81345825/225248169-ed12dd47-63e7-434a-9d21-12041a04152b.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+本專案為redux toolkit的練習專案，使用react, Material UI與redux toolkit實現的todoList
 
-## Available Scripts
+## 專案網址
+https://todolist-ea213.web.app/
 
-In the project directory, you can run:
+## 功能
+* 新增待辦事項
 
-### `npm start`
+在上方左側欄位輸入待辦事項，接著按下Enter或點擊欄位內右方按鈕即可新增待辦事項。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![新增待辦事項](https://user-images.githubusercontent.com/81345825/225254815-91407d19-2eba-42d0-8bbe-e5b9068e4d16.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* 標記完成與刪除
 
-### `npm test`
+於已建立的待辦事項左側進行勾選即可標記為完成，待辦事項會被移動至右方的已完成欄位中，並且在事項下方標記完成時間。
+點擊事項右側的垃圾桶按鈕即可刪除事項。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![待辦](https://user-images.githubusercontent.com/81345825/225256108-fe750f1c-b4cf-4cb8-854b-89c90df09749.png)
 
-### `npm run build`
+![完成](https://user-images.githubusercontent.com/81345825/225256119-f550f3e2-bd5e-476c-b1ca-723c5c3695d4.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* 搜尋待辦事項或已完成事項
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+在上方右側欄位輸入想搜尋的關鍵字，即可搜尋已建立的待辦事項或已完成的事項。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![搜尋](https://user-images.githubusercontent.com/81345825/225256421-7c2dd841-2e2a-44f3-aabd-e5ce51f841b7.png)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![搜尋](https://user-images.githubusercontent.com/81345825/225256441-7dc5132e-0332-4e46-8153-0b32d056d01c.png)
